@@ -1,0 +1,24 @@
+{
+  "name": "canto-dictionary",
+  "version": "1.0.0",
+  "description": "I'm aiming to build a better search system for cantonese than the one at https://cantonese.org/search",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TGT12206/canto-dictionary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TGT12206/canto-dictionary/issues"
+  },
+  "homepage": "https://github.com/TGT12206/canto-dictionary#readme",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  },
+  "type": "module"
+}

@@ -1,2 +1,3 @@
 # Ignore everything in the data folder
 data/*
+node_modules/*
