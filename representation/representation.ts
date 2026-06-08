@@ -17,8 +17,43 @@ export abstract class Dictionary_Entry {
         return `${this.traditional} ${this.simplified} [${this.pinyin}] {${this.jyutping}} /${this.definitions}/\n`;
     }
 }
+export class Normalized_Entry extends Dictionary_Entry {
+    static From_Line(line: string): CCEDICT_Entry {
+        const output = new Canto_Reading_of_CCEDICT();
 
-export class Full_Canto_Entry extends Dictionary_Entry {
+        let i = 0;
+        while (line[i] !== '\[') {
+            i++;
+        }
+
+        const spelling = line.substring(0, i).trim();
+        output.traditional = spelling.substring(0, Math.floor(spelling.length / 2));
+        output.simplified = spelling.substring(Math.ceil(spelling.length / 2));
+
+        let j = i;
+        while(line[j] !== '\]') {
+            j++;
+        }
+
+        output.pinyin = this.Normalize_Pinyin(line.substring(i + 1, j));
+
+        i = j + 1;
+        while (line[i] !== '\{') {
+            i++;
+        }
+        j = i + 1;
+        while (line[j] !== '\}') {
+            j++;
+        }
+
+        output.jyutping = line.substring(i + 1, j);
+
+        output.definitions = line.substring(j + 3).trim();
+
+        return output;
+    }
+}
+export class Canto_Exclusive_Entry extends Dictionary_Entry {
     static From_Line(line: string): Canto_Reading_of_CCEDICT {
         const output = new Canto_Reading_of_CCEDICT();
 

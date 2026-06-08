@@ -1,6 +1,6 @@
 import { createReadStream } from 'node:fs';
 import { createInterface } from 'node:readline';
-import { Canto_Reading_of_CCEDICT, CCEDICT_Entry, Full_Canto_Entry, type Dictionary_Entry } from './representation.js';
+import { Canto_Reading_of_CCEDICT, CCEDICT_Entry, Canto_Exclusive_Entry, type Dictionary_Entry } from './representation.js';
 import { createWriteStream } from 'node:fs';
 
 export async function Merge_All_Dicts(ccedict_path: string, canto_readings_path: string, cc_canto_path: string, output_path: string) {
@@ -60,7 +60,7 @@ export async function Merge_All_Dicts(ccedict_path: string, canto_readings_path:
     for await (const line of rl) {
         if (line.at(0) === '#') continue;
 
-        const newEntry = Full_Canto_Entry.From_Line(line);
+        const newEntry = Canto_Exclusive_Entry.From_Line(line);
         has_canto.add(`${newEntry.traditional}${newEntry.pinyin}`);
         const key = `${newEntry.traditional}${newEntry.pinyin}${newEntry.jyutping}`;
         const entry = c_entries.get(key);
