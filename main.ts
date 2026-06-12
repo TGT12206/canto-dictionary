@@ -1,5 +1,5 @@
 import "./monkey-patches/html-element.js";
-import { Load_Merged_Dictionary } from "./representation/merger.js";
+import { Load_Merged_Dictionary } from "./representation/loader.js";
 import { Search_Page } from "./ui/search-page.js";
 
 const search_query_input = <HTMLInputElement> document.getElementById("search-query-input");

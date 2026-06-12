@@ -6,10 +6,12 @@ export abstract class Dictionary_Entry {
     definitions: string = '';
     static Normalize_Pinyin(pinyin: string): string {
         let normalized_pinyin = '';
-        for (const l of pinyin) {
-            if (l === ' ') continue;
-            normalized_pinyin += l;
-            if (/[1-4]/.test(l)) normalized_pinyin += ' ';
+        for (let i = 0; i < pinyin.length; i++) {
+            normalized_pinyin += pinyin[i];
+            if (/[1-5]/.test(<string> pinyin[i])) {
+                normalized_pinyin += ' ';
+                if (i < pinyin.length - 1 && pinyin[i + 1] === ' ') i++;
+            }
         }
         return normalized_pinyin.trim();
     }
