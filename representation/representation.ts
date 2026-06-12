@@ -49,6 +49,7 @@ export class Normalized_Entry extends Dictionary_Entry {
         output.jyutping = line.substring(i + 1, j);
 
         output.definitions = line.substring(j + 3).trim();
+        output.definitions = output.definitions.slice(0, output.definitions.length - 1);
 
         return output;
     }

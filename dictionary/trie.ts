@@ -4,7 +4,7 @@ export class Trie_Node {
     get_all_child_node_entries(output: number[] = []): number[] {
         if (this.entry_index !== null) output.push(this.entry_index);
         for (const c of this.children.values()) {
-            if (c.children.size > 0) output.push(...c.get_all_child_node_entries(output));
+            c.get_all_child_node_entries(output);
         }
         return output;
     }
@@ -26,6 +26,8 @@ export class Trie {
     find(query: string | string[]): number[] {
         let curr_node = this.root;
         for (const c of query) {
+            console.log(c);
+            console.log(curr_node.children.keys());
             let next_node = curr_node.children.get(c);
             if (next_node === undefined) return [];
             curr_node = next_node;
