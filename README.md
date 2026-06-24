@@ -1,8 +1,19 @@
 # Description
 I'm aiming to build a better search system for cantonese than the one at https://cantonese.org/search
 
+edit:
+Apparently I didn't look past the first google result when finding a dictionary. https://jyutdictionary.com is already more comprehensive and a better user experience from what I can tell.
+
+I still plan on continuing the project for a short while, but I doubt I will complete all of my goals.
+
+Even so, there are features that I like from https://jisho.org that https://jyutdictionary.com does not have, which I want to implement.
+
 Goals:
 - 4 search modes (in order of priority): Jyutping, English, Hanzi (traditional and simplified should be treated the same), and Pinyin
+- List of possible pronunciations for every character
+- Character-specific meanings/meaning fragments for each character
+- Character-specific radical composition
+- Search for characters by radicals
 - Entry ranking: rank the search results in a better order. For example, right now 好 is the 20th result for "good", even below 分. 好 should ideally be the first result, whether that's a result of ranking by how common the word is, or by ranking how important the query (good) is to the word (好).
 - Sound approximation: as a beginner, i struggle with distinguishing tones and sounds in casual speech. maybe i can add a default list of sounds and tones that i often struggle to distinguish, and let users tweak it to their preference.
 - Accounting for typos based on edit distance
